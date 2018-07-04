@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+
+{% block content %}
+<div class="container">
+
+     <a href="{% url 'onlineapp:logout' %}" class="btn btn-success">logout</a>
+    {% if 'onlineapp.add_colleges' in user_permissions %}
+    <h6>
+      <a href="add_college/" class="btn btn-success">Add College</a>
+    </h6>
+{% endif %}
+
+
+<table border="2" style="background-color:yellow" class="table table-bordered">
+
+    <tr>
+         <th>id</th>
+        <th>Name</th>
+        <th>Acronym</th>
+        <th>Actions</th>
+
+    </tr>
+
+{% for k in colleges %}
+    <tr>
+   {% for i in k.values %}
+
+        <td><a href="/onlineapp/colleges/{{  i  }}/">{{i}}</a> </td>
+    {% endfor %}
+
+        {% if 'onlineapp.change_colleges' in user_permissions and 'onlineapp.delete_colleges' in user_permissions %}
+    <h6>
+        <td><a href="/onlineapp/colleges/{{ k.id }}/edit/">Edit</a>|<a href="/onlineapp/colleges/{{ k.id }}/delete/">Delete</a></td>
+    </h6>
+    {% endif %}
+
+
+    </tr>
+
+{% endfor %}
+
+</table>
+
+    <a href="/onlineapp/colleges/{{ k.id }}/edit/">Edit</a>
+</div>
+{%endblock %}

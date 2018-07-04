@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template demo</title>
+</head>
+
+<body style="background-color:pink">
+<table border="2" style="background-color:yellow">
+
+
+<p>hai bro</p><br>
+
+{% for k in data %}
+
+    {% for i in k.values %}
+
+        <td>{{i}}</td>
+
+    {% endfor %}
+
+    </tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

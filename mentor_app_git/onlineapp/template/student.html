@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+
+{% block content %}
+<div class="container">
+
+  <a href="add_student/" class="btn btn-success">Add student</a>
+
+<table border="2" style="background-color:yellow" class="table table-bordered">
+
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>email</th>
+        <th>marks</th>
+        <th>actions</th>
+    </tr>
+
+{% for k in colleges%}
+    <tr>
+   {% for i in k.values %}
+
+        <td>{{i}}</td>
+    {% endfor %}
+        <td><a href="./{{ k.id }}/edit/">Edit</a>|<a href="./{{ k.id }}/delete/">Delete</a></td>
+    </tr>
+
+{% endfor %}
+
+</table>
+</div>
+{%endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <form action = "" method = "post">
+            {% csrf_token %}
+            {{ student_form.as_p }}
+            {{ test_form.as_p }}
+        <hr>
+        <input type="submit" class="btn btn-success" value = "Submit"/>
+        </form>
+    </div>
+{% endblock %}
